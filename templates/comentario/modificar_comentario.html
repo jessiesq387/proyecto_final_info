@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load colaborador_tags %}
+
+{% block title %}Modificar comentario{% endblock %}
+
+{% block contenido %}
+
+{% if user.is_superuser or request.user|has_group:"Colaborador" or comentario.usuario == user %}
+
+<h1>Modificar comentario</h1>
+<div class="container">
+    <div class="row py-5">
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Modificar</button>
+        </form>
+
+    </div>
+</div>
+
+{% else %}
+    <div class="container" style="margin: 300px; text-align: justify;">
+        <center>
+            <h1>Solo usuarios con permisos pueden acceder a esta página</h1>
+        </center>
+    </div>
+
+{% endif %}
+
+{% endblock %}

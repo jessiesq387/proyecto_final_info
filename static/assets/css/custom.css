@@ -1,0 +1,50 @@
+body, html {
+    background-color: #198754 !important; /* verde oscuro */
+    color: white !important; /* letras blancas */
+}
+
+/* Menú y submenú */
+.navbar a,
+.navbar-nav .nav-link,
+.dropdown-menu a {
+    color: white !important;
+}
+
+/* Nombre del negocio */
+.navbar-brand,
+.logo {
+    color: white !important;
+}
+
+/* Footer y contacto */
+footer,
+footer a,
+footer p,
+.top-info,
+.top-info p,
+.top-info a,
+.footer-contact,
+.footer-contact p,
+.footer-contact a {
+    color: white !important;
+}
+/* Cambiar el color de los enlaces del texto de créditos */
+.text-success {
+    color: black !important; /* Cambia a negro o pon white si quieres */
+}
+
+/* Opcional: cambiar color al pasar el mouse */
+.text-success:hover {
+    color: #ff6600 !important; /* naranja para resaltar */
+}
+/* Texto de créditos legible sobre fondo verde */
+a.credits {
+    color: black !important;   /* Letras negras */
+    font-weight: normal;        /* Opcional: normal o bold */
+    text-decoration: underline; /* Opcional: si querés subrayar */
+}
+
+a.credits:hover {
+    color: #ff6600 !important; /* Naranja al pasar el mouse */
+}
+ 

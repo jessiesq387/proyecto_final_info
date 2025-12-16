@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+
+{% block contenido %}
+
+<section class="pricing">
+
+  {% for comentario in comentarios %}
+    {% if user.is_superuser or request.user|has_group:"Colaborador" or comentario.usuario == user %}
+    <div class="row justify-content-md-center ">
+      <div class="php-email-form" >
+        <div class="list-group-item d-flex gap-3 py-3" aria-current="true">
+          <img src="{{ c.usuario.imagen.url }}" style="width:10%; height: 10%;" width="40" height="40" class="rounded-circle flex-shrink-0">
+          <div class="d-flex gap-2 w-100 justify-content-between">
+            <div class= "container">
+              <div id="comentario-{{ comentario.id }}">
+                  <p><strong>{{ comentario.articulo.titulo }}</strong></p>
+                  <p>{{ comentario.texto }}</p>
+                  <small>{{ comentario.fecha }}</small>
+                  <a class="btn btn-success btn-lg"href="{% url 'apps.comentario:comentario_actualizar' comentario.pk %}">Editar</a>
+                  <a class="btn btn-warning btn-lg" href="{% url 'apps.comentario:eliminarComentario' comentario.pk %}">Eliminar comentario</a>
+              </div>
+              {% if empty %}
+              <p>No hay comentarios</p>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endif %}
+{% endfor %}
+
+</section>
+
+
+{% endblock contenido %}

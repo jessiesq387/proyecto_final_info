@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %} Artículo individual {% endblock title %}</title>
+
+{% block contenido %}
+
+        <br>
+        <li>Categoría: {{ articulos.categoria }}</li>
+        <li>Título:{{ articulos.titulo }}</li>
+        <li>Resumen: {{ articulos.resumen }}</li>
+        <br>
+        <li>Contenido: {{ articulos.contenido }}</li>
+        <br>
+        <img src="{{ articulos.imagen.url }}"
+
+    
+
+
+{% endblock %}
